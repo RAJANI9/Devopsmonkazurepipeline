@@ -19,10 +19,10 @@ steps:
   displayName: 'Run a multi-line script'
 - task: CopyFiles@2
   inputs:
-    Contents: '**/.war'
-    TargetFolder: build.artifactstagingdirectory
+    Contents: '**/*.war'
+    TargetFolder: '$(build.artifactstagingdirectory)'
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: Build.ArtifactStagingDirectory
-    ArtifactName: 'drop'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'snapshot'
     publishLocation: 'Container'
